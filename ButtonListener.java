@@ -23,8 +23,8 @@ import javazoom.jlgui.basicplayer.BasicPlayerException;
 
 public class ButtonListener implements ActionListener {
 	private JFrame frame;
-    private String text;
-    private BasicPlayer player;
+    	private String text;
+    	private BasicPlayer player;
 	private BasicController control;
 	private JFileChooser chooser = new JFileChooser();
 	private HistoryDialog history;
@@ -82,7 +82,7 @@ public class ButtonListener implements ActionListener {
 				if (choice == JFileChooser.APPROVE_OPTION){
 					//選択されたファイルのパスを取得する
 					file = chooser.getSelectedFile();
-				    //ファイル名の読み込みをする
+				    	//ファイル名の読み込みをする
 					fr = new FileReader(file);
 					//タイトルを選ばれたファイルの名前にする(絶対パス)
 					frame.setTitle(file.getAbsolutePath());
@@ -169,7 +169,7 @@ public class ButtonListener implements ActionListener {
 				if (choice == JFileChooser.APPROVE_OPTION){
 					//選択されたファイルのパスを取得する
 					file = chooser.getSelectedFile();
-				    //ファイル名の読み込みをする
+				    	//ファイル名の読み込みをする
 					fr = new FileReader(file);
 					bf = new BufferedReader(fr);
 					defList = new JList(defModel);
@@ -186,7 +186,7 @@ public class ButtonListener implements ActionListener {
 				}
 			}catch(Exception ex){
 				System.out.println("c");
-			    ex.printStackTrace();
+				ex.printStackTrace();
 			}
 		}
 	}
@@ -220,10 +220,10 @@ public class ButtonListener implements ActionListener {
 	public void play(String filename){
 		try{
 			//ファイルを開いて再生、音量、パンなどを設定する
-		    control.open(new File(filename));
-		    control.play();
-		    control.setGain(volume);
-		    control.setPan(0.0);
+		    	control.open(new File(filename));
+		    	control.play();
+		    	control.setGain(volume);
+		    	control.setPan(0.0);
 
 		}catch (BasicPlayerException e){
 			System.out.println("b");
