@@ -30,23 +30,23 @@ public class HistoryDialog extends GenerateDialog{
 	public void setListInitData(int x, int y, int width, int height) {
 		historyList = new JList(model);
 		sp.getViewport().setView(historyList);
-	    sp.setBounds(x, y, width, height);
-	    panel.add(sp);
-	    mouseListener = new MouseAdapter() {
-	    public void mouseClicked(MouseEvent e) {
-	        if (e.getClickCount() == 2) {
-	            index = historyList.locationToIndex(e.getPoint());
+	    	sp.setBounds(x, y, width, height);
+	    	panel.add(sp);
+	    	mouseListener = new MouseAdapter() {
+	    	public void mouseClicked(MouseEvent e) {
+	        	if (e.getClickCount() == 2) {
+	        		index = historyList.locationToIndex(e.getPoint());
 
-	            try {
-	            	control.stop();
-	    		} catch (BasicPlayerException e1) {
-	    			e1.printStackTrace();
-	    		}
-	              	play(nameList.get(index));
-	           	}
-	       	}
-	    };
-	    historyList.addMouseListener(mouseListener);
+	            		try {
+	            			control.stop();
+	    			} catch (BasicPlayerException e1) {
+	    				e1.printStackTrace();
+	    			}
+	              		play(nameList.get(index));
+	           		}
+	       		}
+	    	};
+	    	historyList.addMouseListener(mouseListener);
 	}
 
 	public void add(String path) {
@@ -61,10 +61,10 @@ public class HistoryDialog extends GenerateDialog{
 	public void play(String filename){
 		try{
 			//ファイルを開いて再生、音量、パンなどを設定する
-		    control.open(new File(filename));
-		    control.play();
-		    control.setGain(ButtonListener.volume);
-		    control.setPan(0.0);
+			control.open(new File(filename));
+			control.play();
+			control.setGain(ButtonListener.volume);
+		    	control.setPan(0.0);
 		}catch (BasicPlayerException e){
 			e.printStackTrace();
 		}
